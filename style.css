@@ -1,0 +1,471 @@
+/*
+Theme Name: Iberisite WordPress Theme
+Theme URI: https://github.com/vamez89/iberisite-wordpress-theme
+Author: Iberisite Development Team  
+Author URI: https://ibervisite.com
+Description: Diseño minimalista, responsive (móvil/tablet/PC), orientado al SEO. Código seguro contra inyecciones SQL/XSS. Comentado en español. Adaptativo a dispositivos con breakpoints modernos. Ligero y optimizado para performance.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: iberisite-theme
+Tags: minimalista, responsive, mobile-first, seo-friendly, lightweight, adaptive, secure
+
+──────────────────────────────────────────────────
+🛡️ SEGURIDAD ANTI-INYECCIÓN (Reglas Arnés AI aplicadas)
+──────────────────────────────────────────────────
+✅ Sanitización de inputs antes de usar
+✅ Outputs escapados con esc_html()/attr()  
+✅ Prepared statements para SQL
+✅ Nunca eval() dinámico sin aprobación del validador 🔴
+
+──────────────────────────────────────────────────
+🎯 SEO OPTIMIZADO
+──────────────────────────────────────────────────
+✅ HTML5 semántico (header, main, footer, section)
+✅ Meta tags optimizados (title, description, canonical)  
+✅ Schema.org structured data integrada
+✅ Lazy loading para imágenes (performance ligera)
+
+──────────────────────────────────────────────────
+📱 DISEÑO RESPONSIVE - MOBILE-FIRST APPROACH
+───────────────────────────
+Mobile-first approach con breakpoints CSS
+Móvil | Tablet | PC - adaptativo fluido
+*/
+
+
+/*
+┌──────────────────────────────────────────────────
+│           RESET & BASE STYLES - MOBILE-FIRST      │
+└──────────────────────────────────────────────────
+*/
+
+/* Mobile-first: Base para todos los dispositivos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography - Minimalista y SEO-friendly */
+html {
+    font-size: 16px; /* Base para scalable typography */
+    scroll-behavior: smooth; /* Navegación suave */
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Links SEO-friendly */
+a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Accessibility: ARIA roles para SEO */
+[role="banner"],
+[role="navigation"],
+[role="main"],
+[role="contentinfo"] {
+    font-size: 1rem;
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           HEADER STYLES - RESPONSIVE NAVIGATION     │
+└──────────────────────────────────────────────────
+*/
+
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.site-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+
+/* Navigation - Mobile-first approach */
+.main-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-toggle {
+    background: none;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block; /* Visible en móvil */
+    font-size: 1.2rem;
+}
+
+.menu-toggle[aria-expanded="true"] {
+    background-color: #f8f9fa;
+}
+
+
+/* Navigation Links */
+.primary-menu {
+    list-style: none;
+    display: flex;
+    margin-left: auto;
+}
+
+.primary-menu li {
+    margin-right: 20px;
+}
+
+.primary-menu a {
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.primary-menu a:hover,
+.primary-menu a:focus {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           LAYOUT - CONTAINER & GRID                │
+└──────────────────────────────────────────────────
+*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-main {
+    padding: 40px 20px;
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           TABLET BREAKPOINT (768px - 1024px)       │
+└──────────────────────────────────────────────────
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .site-header {
+        padding: 30px;
+    }
+
+    .site-title {
+        font-size: 1.8rem;
+    }
+
+    .site-main {
+        padding: 50px 30px;
+    }
+
+    .primary-menu {
+        flex-wrap: wrap;
+    }
+
+    .primary-menu li {
+        margin-right: 15px;
+    }
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           DESKTOP BREAKPOINT (1025px+)             │
+└──────────────────────────────────────────────────
+*/
+
+@media (min-width: 1025px) {
+    .site-header {
+        padding: 40px 60px;
+    }
+
+    .container {
+        max-width: 1280px;
+        padding: 0 40px;
+    }
+
+    .site-main {
+        padding: 60px 40px;
+    }
+
+    /* Navigation responsive para desktop */
+    .main-navigation nav {
+        display: flex;
+        list-style: none;
+    }
+
+    .main-navigation li {
+        margin-right: 30px;
+    }
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           MOBILE BREAKPOINT (320px - 767px)        │
+└──────────────────────────────────────────────────
+*/
+
+@media (max-width: 767px) {
+    .site-header {
+        padding: 15px;
+    }
+
+    .site-title {
+        font-size: 1.3rem;
+    }
+
+    .site-main {
+        padding: 20px;
+    }
+
+    /* Mobile menu responsive */
+    .menu-toggle {
+        display: block;
+        font-size: 1.4rem;
+    }
+
+    .primary-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border-top: 1px solid #eee;
+        display: none; /* Hidden por default, mostrar con toggle */
+    }
+
+    .menu-toggle[aria-expanded="true"] + .primary-menu {
+        display: block;
+    }
+
+    .primary-menu li {
+        display: block;
+        margin-right: 0;
+        padding: 12px 20px;
+        border-bottom: 1px solid #f8f9fa;
+    }
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           ACCESSIBILITY & SEO                     │
+└──────────────────────────────────────────────────
+*/
+
+/* Skip link para navegación accesible (SEO best practice) */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background-color: #2563eb;
+    color: white;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* Semantic HTML tags SEO-optimized */
+main[role="main"] {
+    font-size: 1.1rem;
+}
+
+article {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 30px;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+@media (max-width: 767px) {
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+}
+
+/* SEO-optimized image lazy loading */
+img.lazy-load {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Performance: Load critical resources primero (SEO + ligero) */
+pre, code {
+    font-family: 'Courier New', monospace;
+    background-color: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 3px;
+    overflow-x: auto;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           RESPONSIVE GRID SYSTEM                   │
+└──────────────────────────────────────────────────
+*/
+
+/* Grid para layout responsive */
+.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; /* Mobile-first: 1 columna */
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           FOOTER STYLES - RESPONSIVE               │
+└──────────────────────────────────────────────────
+*/
+
+.site-footer {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    border-top: 1px solid #eee;
+}
+
+.footer-legal {
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Desktop footer layout */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .site-footer {
+        padding: 50px 30px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .site-footer {
+        padding: 60px 40px;
+    }
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           PERFORMANCE - LATE LOAD                   │
+└──────────────────────────────────────────────────
+*/
+
+/* Lazy loading para imágenes (performance ligera) */
+img[data-src] {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/*
+┌──────────────────────────────────────────────────
+│           SUMMARY - CÓDIGO COMENTADO EN ESPAÑOL    │
+└──────────────────────────────────────────────────
+*/
+
+/*
+┌─────────────────────────────────────────────────┐
+│         DISEÑO RESPONSIVE MOBILE-FIRST          │
+│                                                 │
+│  [✓] Mobile: 320px - 767px                      │
+│      - 1 columna, header compacto               │
+│      - Menú hamburguesa                         │
+│                                                 │
+│  [✓] Tablet: 768px - 1024px                     │
+│      - 2 columnas, menú expandible              │
+│      - Padding ampliado                         │
+│                                                 │
+│  [✓] PC/Desktop: 1025px+                        │
+│      - 3 columnas, navegación horizontal        │
+│      - Layout optimizado                       │
+│                                                 │
+│            🔴 NUNCA eval() sin validación       │
+└─────────────────────────────────────────────────┘
+*/
