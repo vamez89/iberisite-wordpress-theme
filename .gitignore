@@ -1,0 +1,47 @@
+# WordPress Theme - .gitignore (Iberisite Arnés AI)
+
+## Archivos ignorados por seguridad y limpieza
+
+### Archivos de subproyectos
+*.pot
+*.po
+.mo
+.js.org/
+
+### Cache y archivos generados
+*.cache
+*.min.css
+*.min.js
+/assets/
+
+### Media uploads (usar el directorio wp-content/uploads)
+!wp-content/uploads/.gitkeep
+/wp-content/uploads/*
+!wp-content/uploads/*/.gitkeep
+
+### Archivos de desarrollo
+.idea/
+.vscode/
+.env.local
+.DS_Store
+Thumbs.db
+
+### Backup temporales
+*.bak
+*.orig
+tmp/
+temp/
+
+### Logs (no subir logs sensibles)
+wp-debug.log
+debug.log
+*.log
+
+### Archivos generados por herramientas AI (seguridad)
+*.md.backup
+backup/*
+
+## Reglas de seguridad Arnés AI:
+- NUNCA commit de archivos con inyecciones detectadas
+- Siempre validar con init.js antes de push
+- memory.md contiene correcciones → precargar siempre
